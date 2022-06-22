@@ -1,0 +1,255 @@
+
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% The graphicx package provides the includegraphics command.
+\usepackage{graphicx}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{siunitx}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+\journal{Journal of Mathematical Stupidity}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+\title{Polynomials with infinite solutions}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Rahul Chhabra}
+
+\address{St. Joseph's College, Prayagraj, Uttar Pradesh, India}
+
+\begin{abstract}
+%% Text of abstract
+A solution to any polynomial $P(x)$ is a value of $x$ that satisfies $P(x) = 0$ . A polynomial of degree 1 forms an equation called a "linear" equation. A linear equation can be expressed as $ax + b = 0$. Its solution is then : 
+\[
+    x = \frac{-b}{a}
+\]
+For polynomials of degree 2, things go a little complicated :
+\[
+    P(x) = ax^2 + bx + c
+\]
+Nonetheless, a quadratic equation can be solved rather easily with the help of the quadratic formula :
+\[
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} 
+\]
+Cubics and quartics each have 3 and 4 roots respectively.
+Overall, any polynomial of degree $n$ has exactly $n$ solutions or roots. 
+But can there be a polynomial equation which has infinite solutions?
+As it turns out - yes.
+\end{abstract}
+
+\begin{keyword}
+Polynomial \sep solution \sep degree of a polynomial \sep linear 
+\sep quadratic \sep quadratic formula \sep roots \sep cubics \sep quartics
+%% keywords here, in the form: keyword \sep keyword
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+
+%% main text
+\section{The null polynomial}
+In general, any polynomial can be expressed as :
+\[
+    P(x) = a_0 + a_1x + a_2x^2 + ...  + a_ix^i
+\]
+The null polynomial is a polynomial that returns 0 for any value of $x$.
+$P(x) = 0$
+It can be understood better as a polynomial with every coefficient equal to 0:
+\[
+    P(x) = 0 + 0x + 0x^2 + ... + 0x^i
+\]
+It will return 0 no matter what. Since it returns 0 for any given value of $x$, it has infinite solutions.\cite{1137202}
+\label{S:1}
+
+\section{A polynomial of degree infinity}
+
+Most of the time when we consider polynomials, we consider the degree to be finite.
+However, there are instances when a polynomial can be thought of as having an infinite degree. Like a power series.
+One prime example is of a Taylor series.\cite{1137203}
+\[
+    \sum_{n = 0}^{\infty} \frac{f^{(n)} (a)}{n!} (x-a)^n
+\]
+A Taylor series is defined to be infinite.
+It is called a Maclaurin series when $a = 0$.
+\label{S:2}
+\section{Roots of a degree infinity polynomial}
+By the fundamental theorem of algebra, we know that a degree $n$ polynomial's equation has $n$ roots.
+Therefore, a polynomial of degree $\infty$ has $\infty$ solutions.
+
+Given a polynomial $P(x)$, let us assume that it has a solution set $S$.
+Let us also assume that the solution set is finite, i.e., there are a finite number of solutions for $P(x)$.
+Now, let us take $n$ to be the largest root in $S$.
+Since it is a root, 
+\[
+    P(n) = 0
+\]
+\begin{equation} \label{n_root}
+     a_0 + a_1n + a_2n^2 + ... = 0
+\end{equation}
+   
+Let us also take any other arbitrary $m$.
+Now, let us see if $m + n$ is a root of $P(x)$.
+\begin{align*}
+    a_0 + a_1(n + m) + a_2(n + m)^2 + ... &= 0\\
+    a_0 + a_1n + a_1m + a_2(n^2 + 2mn + m^2) + ... &= 0\\
+    a_0 + a_1n + a_1m + a_2n^2 + a_2m^2 + 2a_2mn + ... &= 0
+\end{align*}
+We see that simplifying produces $a_in^i + a_im^i$ along with all the intermediate terms of a bionomial expansion of the form $(a \pm b)^n$.
+Let the sum of all these intermediate terms be $T_{m + n}$.
+
+Now, 
+\begin{align*}
+    a_1n + a_1m + a_2n^2 + a_2m^2 + ... + T_{m+n} &= 0\\
+    (a_1n + a_2n^2 + ...) + (a_1m + a_2m^2 + ...) + T_{m+n} &= 0
+\end{align*}
+But from \ref{n_root}, 
+\begin{equation} \label{mn_root}
+    (a_1m + a_2m^2 + ...) + T_{m+n} = 0
+\end{equation}
+Since it is possible for the expression \ref{mn_root}, 
+\[P(m+n)=0\]
+But $n$ is by definition, the largest root, then, by contradiction, the solution set $S$ has to be infinite.
+Therefore, in this case,there are infinite solutions to the polynomial $P(x)$.
+
+But what if there is no value of $m$ that satisfies $T_{m+n}=0$? Then, in that case, the solution set can be thought of as not having as many elements as the degree of the polynomial.
+Just like how 
+\[
+    x^2 + 1 - 2x = 0
+\]
+Has one solution $x=1$.
+The solution set for this quadratic would be $\{1\}$.
+Here, there are two roots - but they are both equal. The case when $m$ does not exist would also be similar.
+In other words, the infinity of the solution set ($\infty_{S}$) would be smaller than or equal to the infinity of the degree of the polynomial ($\infty_{P}$), for any given infinite polynomial.
+Or,
+\begin{equation}
+    \infty_{S} \leqslant \infty_{P}
+\end{equation}
+\section{Such equations in action}
+Here are a few examples :
+\[
+\sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n+1)!} x^{2n+1}
+\]
+This is the Taylor series for the $sin(x)$ function. It is how your calculator get the value when you feed $x$ to it.
+\section*{A note on other fields}
+A field is a set on which the binary operations $+$, $-$, $\times$ and $\div$ are defined.
+Besides integral fields, there are other fields where polynomials will behave differently and a polynomial with finite terms and of a finite degree can also have infinite solutions.
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% References
+%%
+%% Following citation commands can be used in the body text:
+%% Usage of \cite is as follows:
+%%   \cite{key}          ==>>  [#]
+%%   \cite[chap. 2]{key} ==>>  [#, chap. 2]
+%%   \citet{key}         ==>>  Author [#]
+
+%% References with bibTeX database:
+
+\bibliographystyle{model1-num-names}
+\appendix
+\section*{Bibliography}
+\bibliography{sample.bib}
+
+%% Authors are advised to submit their bibtex database files. They are
+%% requested to list a bibtex style file in the manuscript if they do
+%% not want to use model1-num-names.bst.
+
+%% References without bibTeX database:
+
+% \begin{thebibliography}{00}
+
+%% \bibitem must have the following form:
+%%   \bibitem{key}...
+%%
+
+% \bibitem{}
+
+% \end{thebibliography}
+
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-1-num.tex'.

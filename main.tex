@@ -1,93 +1,28 @@
-
 \documentclass[preprint,12pt]{elsarticle}
-
-%% Use the option review to obtain double line spacing
-%% \documentclass[preprint,review,12pt]{elsarticle}
-
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%% \documentclass[final,1p,times]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,3p,times]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,5p,times]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn]{elsarticle}
-
-%% The graphicx package provides the includegraphics command.
 \usepackage{graphicx}
-%% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{siunitx}
-%% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
-
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers after \end{frontmatter}.
 \usepackage{lineno}
 
-%% natbib.sty is loaded by default. However, natbib options can be
-%% provided with \biboptions{...} command. Following options are
-%% valid:
-
-%%   round  -  round parentheses are used (default)
-%%   square -  square brackets are used   [option]
-%%   curly  -  curly braces are used      {option}
-%%   angle  -  angle brackets are used    <option>
-%%   semicolon  -  multiple citations separated by semi-colon
-%%   colon  - same as semicolon, an earlier confusion
-%%   comma  -  separated by comma
-%%   numbers-  selects numerical citations
-%%   super  -  numerical citations as superscripts
-%%   sort   -  sorts multiple citations according to order in ref. list
-%%   sort&compress   -  like sort, but also compresses numerical citations
-%%   compress - compresses without sorting
-%%
-%% \biboptions{comma,round}
-
-% \biboptions{}
-
-\journal{Journal of Mathematical Stupidity}
+\newenvironment{Resumen} {
+  \cleardoublepage
+  \setsinglecolumn
+  \chapter*{\centering \Large Lay Summary}
+  \thispagestyle{empty}
+}
 
 \begin{document}
 
 \begin{frontmatter}
+\title{Problema K-minimum spanning tree}
+\author{Roberto Juan Cayro Cuadros, Gabriel Alexander Valdivia Medina,
+Giulia Alexa Naval Fernández, Rodrigo Alonso Torres Sotomayor}
 
-%% Title, authors and addresses
+\address{Universidad Católica San Pablo}
 
-\title{Polynomials with infinite solutions}
+\begin{Resumen}
 
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for the associated footnote;
-%% use the fnref command within \author or \address for footnotes;
-%% use the fntext command for the associated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for the associated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%%
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \address{Address\fnref{label3}}
-%% \fntext[label3]{}
-
-
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{<author name>}
-%% \address[label1]{<address>}
-%% \address[label2]{<address>}
-
-\author{Rahul Chhabra}
-
-\address{St. Joseph's College, Prayagraj, Uttar Pradesh, India}
-
-\begin{abstract}
 %% Text of abstract
 A solution to any polynomial $P(x)$ is a value of $x$ that satisfies $P(x) = 0$ . A polynomial of degree 1 forms an equation called a "linear" equation. A linear equation can be expressed as $ax + b = 0$. Its solution is then : 
 \[
@@ -105,7 +40,7 @@ Cubics and quartics each have 3 and 4 roots respectively.
 Overall, any polynomial of degree $n$ has exactly $n$ solutions or roots. 
 But can there be a polynomial equation which has infinite solutions?
 As it turns out - yes.
-\end{abstract}
+\end{Resumen}
 
 \begin{keyword}
 Polynomial \sep solution \sep degree of a polynomial \sep linear 

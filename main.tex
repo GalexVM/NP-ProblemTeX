@@ -217,6 +217,64 @@ Besides integral fields, there are other fields where polynomials will behave di
 %% \section{}
 %% \label{}
 
+\section{¿Es el problema k-MST NP-completo?}
+
+\paragraph{\textnormal{No es posible suponer la naturaleza del problema, y establecer que es NP-hard o NP-completo, sin antes evidencia alguna, para probrarlo este debe pertenecer a NP, ademas que un problema NP-completo pueda reducirse al mismo}}
+
+
+\subsection{k-MST \in NP.}
+
+\subsection{NP-completo $\alpha$  k-MST}\\\\
+
+
+
+\subsubsection{Steiner problem}\\\\
+
+\textnormal{Es un problema NP-completo,usado en problemas de optimización y mayormente enfocado en estructuras de grafos aunque tambien visto en aplicaciones de modelación de redes con más de 2 terminales. El problema es que dado un grafo no-dirigido, de aristas con peso, generar un arbol dado un
+\textit{Sub-set} de vertices los cuales formarán este arbol, además puede añadirse nuevos vertices para lograr las conexiones entre estos, llamados \textit{Steiner-vertices}, El objetivo del problema será crear un arbol de menor peso posible, tomando en cuenta los pesos de las aristas. Los vertices deberán ser exactamente los dados en el Sub-set, pero podrán ser añadidos vertices adicionales siendo los Steiner-vertices}\\\\
+
+\textit{ Steiner-problem:}\\
+
+\textit{ENTRADA: }
+
+\begin{itemize}
+\item Grafo no-dirigido G con aristas de peso.
+\item Sub-set de vertices S.
+\end{itemize}
+
+
+\textit{SALIDA: }
+
+\begin{itemize}
+\item Arbol de menor peso con los vertices de S y los Steiner-vertices si fueran necesarios.\\\\\\\\\\\\
+
+\end{itemize}
+
+
+
+\textit{ k-MST:}\\
+
+\textit{ENTRADA: }
+
+\begin{itemize}
+\item Grafo no-dirigido G con aristas de peso.
+\item numero k
+\end{itemize}
+
+
+\textit{SALIDA: }
+
+\begin{itemize}
+\item Arbol de menor peso con k-vertices y k-1 aristas.
+
+\end{itemize}
+
+\textit{Reducción }\\
+\textnormal{Dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices, se usará el tamaño del sub-set de vertices siendo este igual a k.}
+
+
+
+
 %% References
 %%
 %% Following citation commands can be used in the body text:

@@ -5,7 +5,7 @@
 \usepackage{siunitx}
 \usepackage{lineno}
 \usepackage{babel}
-
+\newcommand{\blank}[1]{\hspace*{#1}}
 \makeatletter
 \def\ps@pprintTitle{%
   \let\@oddhead\@empty
@@ -49,22 +49,38 @@ El k-MST o k-minnimum spanning tree problem, árbol de expansión de péso míni
 \section{Demostración NP-completo}
 \paragraph{\textnormal{No es posible suponer la naturaleza del problema, y establecer que es NP-hard o NP-completo, sin la evidencia correspondiente, para probrarlo este debe pertenecer a NP, ademas que un problema NP-completo pueda reducirse al mismo}}
 \subsection{Demostrar que k-MST $\in$ NP}
+\textit{\underline{\textbf{k-MST (G,k)}} }
+\begin{enumerate}
+
+    \item \textnormal{x $\leftarrow$ arbol.}
+    
+    \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
+    \textbf{to} k}
+    
+    \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
+     
+    \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
+    
+    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}
+    
+\end{enumerate}
 
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 \subsubsection{Steiner problem}
-Es un problema NP-completo de los 21 problemas de Karp, usado en problemas de optimización y mayormente enfocado en estructuras de grafos aunque tambien visto en aplicaciones de modelación de redes con más de 2 terminales. El problema consiste en que,  dado un grafo no-dirigido de aristas con peso, generar un arbol dado un
+Es un problema NP-completo de los 21 problemas de Karp, usado en problemas de optimización y mayormente enfocado en estructuras de grafos aunque tambien visto en aplicaciones de modelación de redes con más de 2 terminales. El problema consiste en que, dado un grafo no-dirigido de aristas con peso, generar un arbol dado un
 \textit{Sub-set} de vertices los cuales formarán este arbol. Además, pueden añadirse nuevos vertices para lograr las conexiones entre estos, llamados \textit{Steiner-vertices}.\\\\
-El objetivo del problema será crear un arbol de menor peso posible, tomando en cuenta los pesos, y los vertices dados. Los vertices deberán ser exactamente los dados en el Sub-set, pero podrán ser añadidos los Steiner-vertices fueran necesarios.
+La decisión asociada al problema será averiguar si existe un árbol que una todos los vértices de un \textit{sub-set} $R$, usando máximo $M$ aristas. Los vertices deberán ser exactamente los dados en el Sub-set, pero podrán ser añadidos los Steiner-vertices fueran necesarios. Esta decisión es conocida por ser del grupo de los NP-completos.
 La principal diferencia con el k-MST es que aquí recibimos un conjunto específico de vectores para conformar nuestro árbol, pudiendo usar vértices fuera de la relación para conectarlos. El k-MST no recibe esta relación, sólo el número de vértices exactos que necesita.\\ 
 
 
-\subsection{Transformación}
+\subsection{Entradas y salidas}
 \subsubsection*{Steiner-problem}
 \textit{Entrada: }
 \begin{itemize}
 \item Grafo no-dirigido G con aristas de peso.
-\item Sub-set de vertices S.
+\item Sub-set de vertices R.
+\item Número M.
 \end{itemize}
 
 \textit{Salida: }
@@ -76,7 +92,7 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 \textit{Entrada: }
 \begin{itemize}
 \item Grafo no-dirigido G con aristas de peso.
-\item Número k
+\item Número k de vértices.
 \end{itemize}
 
 \textit{Salida: }
@@ -84,9 +100,9 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 \item Arbol de menor peso con k-vertices y k-1 aristas.
 \end{itemize}
 
-\subsubsection{Reducción}
-\textnormal{Dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. Aún debe aplicarse una transformación polinomial, de modo que usaremos su complemento cuyas aristas serán de peso igual a size of sub-set, de esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\
-\textnormal{Por consiguiente logramos reducir el problema de Steiner tree a k-mst, al tranformar su entrada en los parámetros de k-MST. Pero resta confirmar que la solución de k-MST también podría solucionar a Steiner-tree. La salida de k-mst será un arbol con el menor peso posible, sin embargo, debemos tener en cuenta que el número k denota la cantidad de vertices necesarios más no que vertices, por lo tanto el numero total de permutaciones de los vertices de G serán combinaciones de el número total de vertices(n) en k vertices:}\\\\
+\subsubsection{Transformación}
+\textnormal{Dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. De esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\
+\textnormal{Por consiguiente logramos reducir el problema de Steiner tree a k-MST, al tranformar su entrada en los parámetros de k-MST. Pero resta confirmar que la solución de k-MST también podría solucionar a Steiner-tree. La salida de k-mst será un arbol con el menor peso posible, sin embargo, debemos tener en cuenta que el número k denota la cantidad de vertices necesarios más no que vertices, por lo tanto el numero total de permutaciones de los vertices de G serán combinaciones de el número total de vertices(n) en k vertices:}\\\\
 \textit{
 \[
 \textnormal{Total~de~permutaciones (Tn)}= \binom{n}{k} = \frac{n!}{k!(n - k)! }.
@@ -98,16 +114,25 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 S \subseteq Tn
 \]
 }\\\\
-Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial. Es necesario otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a la relación de vértices de Steiner. De esta forma, el k-MST utilizará estos vértices sí o sí como parte de su solución.
-Calculamos $t$ (número de vértices en cada uno de estos árboles de arista 0) como $t = n-r-1$, siendo n el número de vértices totales y r el tamaño del sub-set de Steiner.\\\\ 
+Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial. Es necesario otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará elos vértices de $R$ vértices sí o sí como parte de su solución.
+\\\\ 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/Trans_graph.png}
-    \caption{Transformación de la entrada de Steiner a entrda de k-MST. Elaboración propia.}
+    \includegraphics[scale=0.65]{images/graph_explicacion.png}
+    \caption{Transformación de la entrada de Steiner a entrda de k-MST. Fuente: www.contrib.andrew.cmu.edu }
     \label{fig:my_label}
 \end{figure}
+\\
+En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\
+
+
+
 \section{Algoritmo de fuerza bruta}
+
+
+
 \section{Algoritmo aproximado}
+
 
 
 %% References
@@ -144,6 +169,7 @@ https://en.wikipedia.org/wiki/K-minimum\_spanning\_tree
 %https://en.wikipedia.org/wiki/K-minimum_spanning_tree
 %https://www.geeksforgeeks.org/steiner-tree/
 %https://pages.cs.wisc.edu/~shuchi/courses/880-S07/scribe-notes/lecture26-2.pdf
+%https://www.contrib.andrew.cmu.edu/~ravi/sidma96.pdf
 
 \end{document}
 

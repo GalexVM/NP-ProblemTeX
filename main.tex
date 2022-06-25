@@ -97,8 +97,15 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 \[
 S \subseteq Tn
 \]
-}
-
+}\\\\
+Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial. Es necesario otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a la relación de vértices de Steiner. De esta forma, el k-MST utilizará estos vértices sí o sí como parte de su solución.
+Calculamos $t$ (número de vértices en cada uno de estos árboles de arista 0) como $t = n-r-1$, siendo n el número de vértices totales y r el tamaño del sub-set de Steiner.\\\\ 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/Trans_graph.png}
+    \caption{Transformación de la entrada de Steiner a entrda de k-MST. Elaboración propia.}
+    \label{fig:my_label}
+\end{figure}
 \section{Algoritmo de fuerza bruta}
 \section{Algoritmo aproximado}
 

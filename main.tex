@@ -5,7 +5,32 @@
 \usepackage{siunitx}
 \usepackage{lineno}
 \usepackage{babel}
+\usepackage{listings}
+\usepackage{xcolor}
 \newcommand{\blank}[1]{\hspace*{#1}}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 \makeatletter
 \def\ps@pprintTitle{%
   \let\@oddhead\@empty
@@ -51,22 +76,14 @@ Según múltiples fuentes\cite{2}\cite{4}, el k-MST o k-minnimum spanning tree p
 \subsection{Demostrar que k-MST $\in$ NP}
 Para demostrar que un problema pertenece a la clase NP, se debe crear un algoritmo no deterministico que resuelva el problema en tiempo polinomial:\\\\
 \textit{\underline{k-MST (G,k)} }
-
-<<<<<<< HEAD
 \begin{enumerate}
-    \item \textnormal{x $\leftarrow$ arbol.}
-=======
     \item \textnormal{x $\leftarrow$ árbol.}
-    
->>>>>>> 0f2830b3751f31df7e39f42fa89949fd01a75e92
     \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
     \textbf{to} k}
     \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
     \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
-    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}
+    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}\\
 \end{enumerate}
-
-
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 El segundo paso para demostrar que un problema pertenece a los NP-completos, es transformar un problema NP-completo conocido para que pueda ser resuelto por el algoritmo del k-MST. Una transformación sencilla es la que se puede hacer dese el problema de Steiner.
@@ -79,47 +96,54 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 
 
 \subsection{Entradas y salidas}
-\subsubsection*{\underline{Steiner-problem}}
-\textit{Entrada: }
-\begin{itemize}
-\item Grafo no-dirigido G con aristas de peso.
-\item Sub-set de vertices R.
-\item Número M.
-\end{itemize}
+\begin{center}
+\begin{tabular}{ |l| }
+\hline
+Steiner-problem \\ \hline
+\textit{Entrada: }\\
+\blank{1cm} *Grafo no-dirigido G con aristas de peso. \\
+\blank{1cm} *Sub-set de vertices R. \\
+\blank{1cm} *Número M. \\
+\\\hline
+\textit{Salida: } \\
+\blank{1cm} *Arbol de menor peso con los vertices de S \\
+\blank{1cm}y los Steiner-vertices si fueran necesarios.\\
+\\\hline
+\end{tabular}
+\end{center}
 
-\textit{Salida: }
-\begin{itemize}
-\item Arbol de menor peso con los vertices de S y los Steiner-vertices si fueran necesarios.\\
-\end{itemize}
-\clearpage
 \subsubsection*{\underline{k-MST}}
-\textit{Entrada: }
-\begin{itemize}
-\item Grafo no-dirigido G con aristas de peso.
-\item Número k de vértices.
-\end{itemize}
+\begin{center}
+\begin{tabular}{ |l| }
+\hline
+k-MST \\ \hline
+\textit{Entrada: }\\
+\blank{1cm} *Grafo no-dirigido G con aristas de peso. \\
+\blank{1cm} *Número k de vértices. \\
 
-\textit{Salida: }
-\begin{itemize}
-\item Arbol de menor peso con k-vertices y k-1 aristas.
-\end{itemize}
+\\\hline
+\textit{Salida: } \\
+\blank{1cm} *Arbol de menor peso con k-vertices y k-1, \\
+\blank{1cm}aristas.\\
+
+\\\hline
+\end{tabular}
+\end{center}
+
 
 \subsubsection{Transformación}
-\textnormal{Dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. De esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\
-\textnormal{Por consiguiente logramos reducir el problema de Steiner tree a k-MST, al tranformar su entrada en los parámetros de k-MST. Pero resta confirmar que la solución de k-MST también podría solucionar a Steiner-tree. La salida de k-mst será un arbol con el menor peso posible, sin embargo, debemos tener en cuenta que el número k denota la cantidad de vertices necesarios más no que vertices, por lo tanto el numero total de permutaciones de los vertices de G serán combinaciones de el número total de vertices(n) en k vertices:}\\\\
+\textnormal{Una primera aproximación será que dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. De esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\
+\textnormal{Pero no podemos asegurar que esta transformación pudiera también resolver al Steiner tree, siendo esta una de las propiedades en una transformación polinómica. Como tenemos de entrada un G, y k, podriamos calcular todas las permutaciones de G en k. Y necesariamente una de ellas corresponderia a la solución para Steiner:}\\\\
 \textit{
 \[
 \textnormal{Total~de~permutaciones (Tn)}= \binom{n}{k} = \frac{n!}{k!(n - k)! }.
 \]
 }
-\textnormal{Esto es importante porque sabiendo que k es el size of sub-set (S) , y hablamos de todas las permutaciones de ese tamaño, podemos concluir que el S debe estar incluido en Tn. Por ello:  }\\\\
-\textit{
+
 \[
-S \subseteq Tn
+S \subseteq Tn.
 \]
-}
-\clearpage
-Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial. Es necesario otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Siguiendo la transformación de R. Ravi \cite{3}, otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará los vértices de $R$ sí o sí como parte de su solución.
+Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial, además que esta reducción planteada no resolverá el problema de k-MST, ya que este necesitaría solo 1 árbol de menor peso. Es necesario entonces otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Siguiendo la transformación de R. Ravi \cite{3}, otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará los vértices de $R$ sí o sí como parte de su solución.
 \\\\ 
 \begin{figure}[h]
     \centering
@@ -128,12 +152,15 @@ Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos e
     \label{fig:my_label}
 \end{figure}
 \\
-En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\
+En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\\\
+Por otra parte cumpliremos la propiedad de la transformación polinomial, en donde redujimos el problema de Steiner a k-MST, por ello la solución a k-MST mediante otra transformación polinómica podra ser la solución a Steiner-tree, gracias al valor de la transformación de k= a (X+1)|R|, puesto que las aristas de los árboles agregados son de peso 0, estos serán agregados a la solución y por el k se confirma que en la solución de k-MST estarán los vértices de R.
 
 
  
 \section{Algoritmo de fuerza bruta}
-
+Para el algoritmo de fuerza bruta, es suficiente una modificación al algoritmo Prim convencional, limitando su avance a k nodos y haciendo que se repita con cada nodo del grafo G como origen. Finalmente, decidir qué arbol de todos los obtenidos ha sido el más corto.
+\clearpage
+\lstinputlisting[language=C++]{codes/BruteForce.cpp}
 
 
 \section{Algoritmo aproximado}

@@ -134,7 +134,8 @@ Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos e
     \label{fig:my_label}
 \end{figure}
 \\
-En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\
+En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\\\
+Por otra parte cumpliremos la propiedad de la transformación polinomial, en donde redujimos el problema de Steiner a k-MST, por ello la solución a k-MST mediante otra transformación polinómica podra ser la solución a Steiner-tree, gracias al valor de la transformación de k= a (X+1)|R|, puesto que las aristas de los árboles agregados son de peso 0, estos serán agregados a la solución y por el k se confirma que en la solución de k-MST estarán los vértices de R.
 
 
  

@@ -71,9 +71,7 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 
 
 \subsection{Entradas y salidas}
-
-
-\subsubsection*{\underline{Steiner-problem}}
+\begin{center}
 \begin{tabular}{ |l| }
 \hline
 Steiner-problem \\ \hline
@@ -81,15 +79,16 @@ Steiner-problem \\ \hline
 \blank{1cm} *Grafo no-dirigido G con aristas de peso. \\
 \blank{1cm} *Sub-set de vertices R. \\
 \blank{1cm} *Número M. \\
-
 \\\hline
 \textit{Salida: } \\
 \blank{1cm} *Arbol de menor peso con los vertices de S \\
 \blank{1cm}y los Steiner-vertices si fueran necesarios.\\
 \\\hline
 \end{tabular}
+\end{center}
 
 \subsubsection*{\underline{k-MST}}
+\begin{center}
 \begin{tabular}{ |l| }
 \hline
 k-MST \\ \hline
@@ -104,6 +103,8 @@ k-MST \\ \hline
 
 \\\hline
 \end{tabular}
+\end{center}
+
 
 \subsubsection{Transformación}
 \textnormal{Una primera aproximación será que dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. De esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\

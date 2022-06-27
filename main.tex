@@ -168,12 +168,6 @@ Para el algoritmo de fuerza bruta, es suficiente una modificación al algoritmo 
 \subsection{Algoritmo de prim.}
 Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(Minimun-spanning-tree) de menor peso posible, usando todos los vértices de G y donde el peso total es el mínimo. El algoritmo funciona un vértice a la vez buscando la conexión al siguiente vértice de menor peso de la forma:\\
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{images/1.png}
-    \caption{Funcionamiento de prim. Fuente: https://laptrinhx.com/minimum-spanning-tree-prim-4207877151/ }
-    \label{fig:my_label}
-\end{figure}
 
 
 \begin{enumerate}
@@ -183,6 +177,12 @@ Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(
 
 \end{enumerate}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/1.png}
+    \caption{Funcionamiento de prim. Fuente: https://laptrinhx.com/minimum-spanning-tree-prim-4207877151/ }
+    \label{fig:my_label}
+\end{figure}
 
 
 \lstinputlisting[language=C++]{codes/BruteForce.cpp}

@@ -86,15 +86,13 @@ Los NP- completo son un tipo especial de problema, todos los problemas NP-comple
 
 
 \section{Introducción al problema k-MST}
-\subsection{Idea}
-Según múltiples fuentes\cite{2}\cite{4}, el k-MST o k-minnimum spanning tree problem, árbol de expansión de péso mínimo k en español es un problema computacional que pide un árbol de mínimo costo con exactamente $k$ vértices que forme un subgrafo del grafo original.
+Según múltiples fuentes\cite{3}\cite{5}, el k-MST o k-minnimum spanning tree problem, árbol de expansión de péso mínimo k en español es un problema computacional que pide un árbol de mínimo costo con exactamente $k$ vértices que forme un subgrafo del grafo original.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/6-mst.jpg}
+    \includegraphics[scale=0.45]{images/6-mst.jpg}
     \caption{6-MST del grafo G. Fuente: Wikipedia Commons}
     \label{fig:my_label}
 \end{figure}
-\subsection{Aplicaciones}
 %---------------------------------------------------------%
 
 
@@ -104,15 +102,6 @@ Según múltiples fuentes\cite{2}\cite{4}, el k-MST o k-minnimum spanning tree p
 Para demostrar que un problema pertenece a la clase NP, se debe crear un algoritmo no deterministico que resuelva el problema en tiempo polinomial:\\\\
 \textit{\underline{k-MST (G,k)} }
 \begin{enumerate}
-<<<<<<< HEAD
-    \item \textnormal{x $\leftarrow$ árbol.}
-    \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
-    \textbf{to} k}
-    \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
-    \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
-    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}\\
-\end{enumerate}
-=======
     \item  \textnormal{t $\leftarrow$ 0}
     \item  \textnormal{\textbf{while} t $<$ k}
     \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
@@ -121,26 +110,22 @@ Para demostrar que un problema pertenece a la clase NP, se debe crear un algorit
      \item \textnormal{\blank{3cm} t++}\\
 \end{enumerate}
 X será el árbol a construirse,junto con el bucle while y una variable t confirmaremos la adición de  exactamente k vértices, escogeremos algún \textit{u} de \textit{G}, si \textit{u} ya esta dentro de \textit{x} el valor de t no cambie por lo tanto se repite hasta tomar otro vértice.
->>>>>>> e70810016861b2f4339423fca3e01f7b95d1dccb
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 El segundo paso para demostrar que un problema pertenece a los NP-completos, es transformar un problema NP-completo conocido para que pueda ser resuelto por el algoritmo del k-MST. Una transformación sencilla es la que se puede hacer dese el problema de Steiner.
 \subsubsection{Steiner problem}
-Según el artículo de Shivam Gupta\cite{1}, el Steiner problem es un problema NP-completo de los 21 problemas de Karp, usado en problemas de optimización y mayormente enfocado en estructuras de grafos aunque tambien visto en aplicaciones de modelación de redes con más de 2 terminales. El problema consiste en que, dado un grafo no-dirigido de aristas con peso, generar un arbol dado un
-\textit{Sub-set} de vertices los cuales formarán este arbol. Además, pueden añadirse nuevos vertices del grafo al \textit{sub-set} para lograr las conexiones entre estos, llamados \textit{Steiner-vertices}.
-\clearpage
+Según el artículo de Shivam Gupta\cite{2}, el Steiner problem es un problema NP-completo de los 21 problemas de Karp, usado en problemas de optimización y mayormente enfocado en estructuras de grafos aunque tambien visto en aplicaciones de modelación de redes con más de 2 terminales. El problema consiste en que, dado un grafo no-dirigido de aristas con peso, generar un arbol dado un
+\textit{Sub-set} de vertices los cuales formarán este arbol. Además, pueden añadirse nuevos vertices del grafo al \textit{sub-set} para lograr las conexiones entre estos, llamados \textit{Steiner-vertices}.\\
+
 La decisión asociada al problema será averiguar si existe un árbol que una todos los vértices de un \textit{sub-set} $R$, usando máximo $M$ aristas. Los vertices deberán ser exactamente los dados en el Sub-set. Esta decisión es conocida por ser del grupo de los NP-completos.
 La principal diferencia con el k-MST es que aquí recibimos un conjunto específico de vectores para conformar nuestro árbol, pudiendo usar vértices fuera de la relación para conectarlos. El k-MST no recibe esta relación, sólo el número de vértices exactos que necesita.\\ 
 
 
 \subsection{Entradas y salidas}
-<<<<<<< HEAD
-=======
 
 
 \subsubsection*{\underline{Steiner-tree}}
 
->>>>>>> e70810016861b2f4339423fca3e01f7b95d1dccb
 \begin{center}
 \begin{tabular}{ |l| }
 \hline
@@ -188,7 +173,7 @@ k-MST \\ \hline
 \[
 S \subseteq Tn.
 \]
-Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial, además que esta reducción planteada no resolverá el problema de k-MST, ya que este necesitaría solo 1 árbol de menor peso. Es necesario entonces otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Siguiendo la transformación de R. Ravi \cite{3}, otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará los vértices de $R$ sí o sí como parte de su solución.
+Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial, además que esta reducción planteada no resolverá el problema de k-MST, ya que este necesitaría solo 1 árbol de menor peso. Es necesario entonces otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Siguiendo la transformación de R. Ravi \cite{4}, otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará los vértices de $R$ sí o sí como parte de su solución.
 \\\\ 
 \begin{figure}[h]
     \centering
@@ -196,7 +181,7 @@ Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos e
     \caption{Transformación de la entrada de Steiner a entrda de k-MST. Fuente: www.contrib.andrew.cmu.edu }
     \label{fig:my_label}
 \end{figure}
-\\
+\\\\
 En este nuevo grafo $G'$, las aristas que unen los nuevos vértices de X tendrán un peso de 0, las aristas correspondientes a las aristas originales de G tendrán un peso de 1, y el resto de pares del grafo tendrán un peso de $\infty$. De este modo, el algoritmo del k-MST encontrará el árbol de menor peso con el parámetro k en $G'$, y verificará si es de igual o menor peso que M, satisfaciendo el requisito de las M aristas debido a que estas tendrán peso 1.\\\\
 Por otra parte cumpliremos la propiedad de la transformación polinomial, en donde redujimos el problema de Steiner a k-MST, por ello la solución a k-MST mediante otra transformación polinómica podra ser la solución a Steiner-tree, gracias al valor de la transformación de k= a (X+1)|R|, puesto que las aristas de los árboles agregados son de peso 0, estos serán agregados a la solución y por el k se confirma que en la solución de k-MST estarán los vértices de R.
 
@@ -204,12 +189,9 @@ Por otra parte cumpliremos la propiedad de la transformación polinomial, en don
  
 \section{Algoritmo de fuerza bruta}
 Para el algoritmo de fuerza bruta, es suficiente una modificación al algoritmo Prim convencional, limitando su avance a k nodos y haciendo que se repita con cada nodo del grafo G como origen. Finalmente, decidir qué arbol de todos los obtenidos ha sido el más corto.
-\clearpage
+
 \subsection{Algoritmo de prim.}
 Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(Minimun-spanning-tree) de menor peso posible, usando todos los vértices de G y donde el peso total es el mínimo. El algoritmo funciona un vértice a la vez buscando la conexión al siguiente vértice de menor peso de la forma:\\
-
-
-
 \begin{enumerate}
     \item  Iniciar el árbol con un vértice cualquiera del grafo
     \item  Construir el árbol, vértice por vértice usando aquellos vértices que ya no estén agregados
@@ -219,16 +201,27 @@ Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/1.png}
+    \includegraphics[scale=0.5]{images/prm.png}
     \caption{Funcionamiento de prim. Fuente: https://laptrinhx.com/minimum-spanning-tree-prim-4207877151/ }
     \label{fig:my_label}
 \end{figure}
 \clearpage
 
+
+\subsection{Implementación}
 \lstinputlisting[language=C++]{codes/BruteForce.cpp}
 
 
+
 \section{Algoritmo aproximado}
+\subsection{Idea}
+Según el artículo de Subham Datta\cite{1}, \textit{Branch and Bound} es un algoritmo que optimiza otros algoritmos estableciendo limitaciones en el conjunto de respuestas posible. Es usado ampliamente en problemas NP-completos para hallar con facilidad computacional un resultado aproximado. Normalmente los \textit{Upper Bounds} o límites superiores son condiciones que limitan el avance de la cantidad de respuestas, depende de la lógica del problema a tratar pero, en general, se toma un punto específico dentro del área de búsqueda de respuestas.\\\\
+En caso del k-MST, se hacen varios tratamientos para que no tenga que buscar exhaustivamente la respuesta desde todos los nodos como origen. Primero se establecen nodos de partida que estén relacionados con aristas de peso muy bajo, luego se elige un valor específico que interrumpa la búsqueda al ser superado. Este es el límite superior. También se hace caso de una enumeración diferente, donde a los nodos se les da un valor precomputarizado de aristas / peso y con ese valor poder decidir qué valores añadir al grafo actual y cuáles no.
+
+
+\subsection{Implementación}
+
+
 
 \section{Aplicaciones}
 \subsection{Network Design}
@@ -243,48 +236,20 @@ Una de sus aplicaciones más conocidas respecto a problemas de conexión, por ej
 
 
 
-
-%% References
-%%
-%% Following citation commands can be used in the body text:
-%% Usage of \cite is as follows:
-%%   \cite{key}          ==>>  [#]
-%%   \cite[chap. 2]{key} ==>>  [#, chap. 2]
-%%   \citet{key}         ==>>  Author [#]
-
-%% References with bibTeX database:
-
 \bibliographystyle{model1-num-names}
 \appendix
-\section*{Bibliography}
 \bibliography{sample.bib}
-
-%% Authors are advised to submit their bibtex database files. They are
-%% requested to list a bibtex style file in the manuscript if they do
-%% not want to use model1-num-names.bst.
-
-%% References without bibTeX database:
-
+\clearpage
 \begin{thebibliography}{00}
-\bibitem{1} Gupta, S. (Junio de 2022). geeksforgeeks. Obtenido de https://www.geeksforgeeks.org/steiner-tree/
-\bibitem{2}Matt Elder, S. C. (2007). CS880: Approximation Algorithms. Obtenido de https://pages.cs.wisc.edu/~shuchi/courses/880-S07/scribe-notes/lecture26-2.pdf
-\bibitem{3}R. Ravi, R. S. (12 de Julio de 2006). Spanning Trees—Short or Small. Obtenido de SIAM (Society for Industrial and Applied Mathematics: https://epubs.siam.org/doi/pdf/10.1137/S0895480194266331
-\bibitem{4} Wikipedia. (Junio de 2022). Wikipedia. Obtenido de https://en.wikipedia.org/wiki/K-minimum$_$spanning$_$tree
-
-
-%% \bibitem must have the following form:
-%%   \bibitem{key}...
-%%
-
-% \bibitem{}
-
+\bibitem{1}Datta, S. (10 de Octubre de 2020). baeldung.com. Obtenido de https://www.baeldung.com/cs/branch-and-bound
+\bibitem{2} Gupta, S. (Junio de 2022). geeksforgeeks. Obtenido de https://www.geeksforgeeks.org/steiner-tree/
+\bibitem{3}Matt Elder, S. C. (2007). CS880: Approximation Algorithms. Obtenido de https://pages.cs.wisc.edu/~shuchi/courses/880-S07/scribe-notes/lecture26-2.pdf
+\bibitem{4}R. Ravi, R. S. (12 de Julio de 2006). Spanning Trees—Short or Small. Obtenido de SIAM (Society for Industrial and Applied Mathematics: https://epubs.siam.org/doi/pdf/10.1137/S0895480194266331
+\bibitem{5} Wikipedia. (Junio de 2022). Wikipedia. Obtenido de https://en.wikipedia.org/wiki/K-minimum$_$spanning$_$tree
 \end{thebibliography}
 %https://en.wikipedia.org/wiki/K-minimum_spanning_tree
 %https://www.geeksforgeeks.org/steiner-tree/
 %https://pages.cs.wisc.edu/~shuchi/courses/880-S07/scribe-notes/lecture26-2.pdf
 %https://www.contrib.andrew.cmu.edu/~ravi/sidma96.pdf
-
+%https://www.baeldung.com/cs/branch-and-bound
 \end{document}
-
-%%
-%% End of file `elsarticle-template-1-num.tex'.

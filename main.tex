@@ -77,16 +77,6 @@ Según múltiples fuentes\cite{2}\cite{4}, el k-MST o k-minnimum spanning tree p
 Para demostrar que un problema pertenece a la clase NP, se debe crear un algoritmo no deterministico que resuelva el problema en tiempo polinomial:\\\\
 \textit{\underline{k-MST (G,k)} }
 \begin{enumerate}
-    \item \textnormal{x $\leftarrow$ árbol.}
-<<<<<<< HEAD
-    \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
-    \textbf{to} k}
-    \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
-    \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
-    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}\\
-\end{enumerate}
-
-=======
     \item  \textnormal{t $\leftarrow$ 0}
     \item  \textnormal{\textbf{while} t $<$ k}
     \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
@@ -95,7 +85,7 @@ Para demostrar que un problema pertenece a la clase NP, se debe crear un algorit
      \item \textnormal{\blank{3cm} t++}\\
 \end{enumerate}
 X será el árbol a construirse,junto con el bucle while y una variable t confirmaremos la adición de  exactamente k vértices, escogeremos algún \textit{u} de \textit{G}, si \textit{u} ya esta dentro de \textit{x} el valor de t no cambie por lo tanto se repite hasta tomar otro vértice.
->>>>>>> b31219c1695ae33080e9348ba7482411382272ae
+
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 El segundo paso para demostrar que un problema pertenece a los NP-completos, es transformar un problema NP-completo conocido para que pueda ser resuelto por el algoritmo del k-MST. Una transformación sencilla es la que se puede hacer dese el problema de Steiner.
 \subsubsection{Steiner problem}

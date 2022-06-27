@@ -53,11 +53,12 @@ Para demostrar que un problema pertenece a la clase NP, se debe crear un algorit
 \textit{\underline{k-MST (G,k)} }
 \begin{enumerate}
     \item \textnormal{x $\leftarrow$ árbol.}
-    \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
-    \textbf{to} k}
+    \item  \textnormal{t $\leftarrow$ 0}
+    \item  \textnormal{\textbf{while} t $<$ k}
     \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
     \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
-    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}\\
+    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}
+     \item \textnormal{\blank{3cm} t++}\\
 \end{enumerate}
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}

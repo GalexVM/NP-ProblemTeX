@@ -123,7 +123,7 @@ k-MST \\ \hline
 }
 
 \[
-S \subseteq Tn
+S \subseteq Tn.
 \]
 Sin embargo, calcular todas las permutaciones de una cantidad $n$ de elementos es un proceso con una complejidad $O(!n)$, que no entra dentro de complejidad polinomial, además que esta reducción planteada no resolverá el problema de k-MST, ya que este necesitaría solo 1 árbol de menor peso. Es necesario entonces otro tratamiento para que el k-MST opere con los vértices que el algoritmo Steiner pide. Siguiendo la transformación de R. Ravi \cite{3}, otra idea es añadir un árbol con aristas de peso 0 en cada vértice que pertenezca a R, y transformar $k$ como $k = |R|(X+1)$, siendo X la cantidad de vértices que tendrán cada uno de estos árboles, denotado como $X = |V(G)|-|R|$ De esta forma, el k-MST utilizará los vértices de $R$ sí o sí como parte de su solución.
 \\\\ 

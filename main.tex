@@ -104,6 +104,7 @@ Según múltiples fuentes\cite{2}\cite{4}, el k-MST o k-minnimum spanning tree p
 Para demostrar que un problema pertenece a la clase NP, se debe crear un algoritmo no deterministico que resuelva el problema en tiempo polinomial:\\\\
 \textit{\underline{k-MST (G,k)} }
 \begin{enumerate}
+<<<<<<< HEAD
     \item \textnormal{x $\leftarrow$ árbol.}
     \item  \textnormal{\textbf{for} t $\leftarrow$ 0,
     \textbf{to} k}
@@ -111,6 +112,16 @@ Para demostrar que un problema pertenece a la clase NP, se debe crear un algorit
     \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
     \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}\\
 \end{enumerate}
+=======
+    \item  \textnormal{t $\leftarrow$ 0}
+    \item  \textnormal{\textbf{while} t $<$ k}
+    \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
+    \item  \textnormal{\blank{2cm}\textbf{if} u \textbf{is not in} x}
+    \item \textnormal{\blank{3cm}\textbf{do} x . add(u)}
+     \item \textnormal{\blank{3cm} t++}\\
+\end{enumerate}
+X será el árbol a construirse,junto con el bucle while y una variable t confirmaremos la adición de  exactamente k vértices, escogeremos algún \textit{u} de \textit{G}, si \textit{u} ya esta dentro de \textit{x} el valor de t no cambie por lo tanto se repite hasta tomar otro vértice.
+>>>>>>> e70810016861b2f4339423fca3e01f7b95d1dccb
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 El segundo paso para demostrar que un problema pertenece a los NP-completos, es transformar un problema NP-completo conocido para que pueda ser resuelto por el algoritmo del k-MST. Una transformación sencilla es la que se puede hacer dese el problema de Steiner.
@@ -123,6 +134,13 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 
 
 \subsection{Entradas y salidas}
+<<<<<<< HEAD
+=======
+
+
+\subsubsection*{\underline{Steiner-tree}}
+
+>>>>>>> e70810016861b2f4339423fca3e01f7b95d1dccb
 \begin{center}
 \begin{tabular}{ |l| }
 \hline
@@ -187,10 +205,42 @@ Por otra parte cumpliremos la propiedad de la transformación polinomial, en don
 \section{Algoritmo de fuerza bruta}
 Para el algoritmo de fuerza bruta, es suficiente una modificación al algoritmo Prim convencional, limitando su avance a k nodos y haciendo que se repita con cada nodo del grafo G como origen. Finalmente, decidir qué arbol de todos los obtenidos ha sido el más corto.
 \clearpage
+\subsection{Algoritmo de prim.}
+Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(Minimun-spanning-tree) de menor peso posible, usando todos los vértices de G y donde el peso total es el mínimo. El algoritmo funciona un vértice a la vez buscando la conexión al siguiente vértice de menor peso de la forma:\\
+
+
+
+\begin{enumerate}
+    \item  Iniciar el árbol con un vértice cualquiera del grafo
+    \item  Construir el árbol, vértice por vértice usando aquellos vértices que ya no estén agregados
+    \item repetir el paso 2 hasta que todos los vértices estén en el árbol
+
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/1.png}
+    \caption{Funcionamiento de prim. Fuente: https://laptrinhx.com/minimum-spanning-tree-prim-4207877151/ }
+    \label{fig:my_label}
+\end{figure}
+\clearpage
+
 \lstinputlisting[language=C++]{codes/BruteForce.cpp}
 
 
 \section{Algoritmo aproximado}
+
+\section{Aplicaciones}
+\subsection{Network Design}
+Una de sus aplicaciones más conocidas respecto a problemas de conexión, por ejemplo una compañia de celular, que tiene distintos precios por diferentes pares de ciudades, el problema esta en construir la red de menor costo posible dado estas ciudades. O bien para una agencia de viajes, y se busca determinar el alcance y costo de la aerolínea.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.00]{images/ciudades.jpg}
+    \caption{Grafo de ciudades. Fuente: https://people.cs.georgetown.edu/~maloof/cosc270.f17/p2.html }
+    \label{fig:my_label}
+\end{figure}
+
 
 
 

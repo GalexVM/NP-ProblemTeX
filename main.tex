@@ -79,30 +79,40 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 
 
 \subsection{Entradas y salidas}
+
+
 \subsubsection*{\underline{Steiner-problem}}
-\textit{Entrada: }
-\begin{itemize}
-\item Grafo no-dirigido G con aristas de peso.
-\item Sub-set de vertices R.
-\item Número M.
-\end{itemize}
+\begin{tabular}{ |l| }
+\hline
+Steiner-problem \\ \hline
+\textit{Entrada: }\\
+\blank{1cm} *Grafo no-dirigido G con aristas de peso. \\
+\blank{1cm} *Sub-set de vertices R. \\
+\blank{1cm} *Número M. \\
 
-\textit{Salida: }
-\begin{itemize}
-\item Arbol de menor peso con los vertices de S y los Steiner-vertices si fueran necesarios.\\
-\end{itemize}
-\clearpage
+\\\hline
+\textit{Salida: } \\
+\blank{1cm} *Arbol de menor peso con los vertices de S \\
+\blank{1cm}y los Steiner-vertices si fueran necesarios.\\
+\\\hline
+\end{tabular}
+
 \subsubsection*{\underline{k-MST}}
-\textit{Entrada: }
-\begin{itemize}
-\item Grafo no-dirigido G con aristas de peso.
-\item Número k de vértices.
-\end{itemize}
+\begin{tabular}{ |l| }
+\hline
+k-MST \\ \hline
+\textit{Entrada: }\\
+\blank{1cm} *Grafo no-dirigido G con aristas de peso. \\
+\blank{1cm} *Número k de vértices. \\
 
-\textit{Salida: }
-\begin{itemize}
-\item Arbol de menor peso con k-vertices y k-1 aristas.
-\end{itemize}
+\\\hline
+\textit{Salida: } \\
+\blank{1cm} *Arbol de menor peso con k-vertices y k-1, \\
+\blank{1cm}aristas.\\
+
+\\\hline
+\end{tabular}
+
 
 \subsubsection{Transformación}
 \textnormal{Dada la entrada G para Steiner, se puede tomar el mismo grafo para k-MST, puesto que tiene las aristas pesadas y un número determinado de vertices. De esta forma aseguramos la transformación y no afectara la salida porque siempre busaremos el arbol de menor peso , se usará el tamaño del sub-set de vertices siendo este igual a k.}\\\\

@@ -93,26 +93,15 @@ Según múltiples fuentes\cite{3}\cite{5}, el k-MST o k-minnimum spanning tree p
     \caption{6-MST del grafo G. Fuente: Wikipedia Commons}
     \label{fig:my_label}
 \end{figure}
-<<<<<<< HEAD
 %---------------------------------------------------------%
-=======
-\subsection{Aplicaciones}
-
->>>>>>> d8e799d18f07bfb60ebd6445f50d2f96f456b14c
 
 
 \section{Demostración NP-completo}
 \paragraph{\textnormal{No es posible suponer la naturaleza del problema, y establecer que es NP-hard o NP-completo, sin la evidencia correspondiente, para probrarlo este debe pertenecer a NP, ademas que un problema NP-completo pueda reducirse al mismo}}
 \subsection{Demostrar que k-MST $\in$ NP}
 Para demostrar que un problema pertenece a la clase NP, se debe crear un algoritmo no deterministico que resuelva el problema en tiempo polinomial:\\\\
-\clearpage
 \textit{\underline{k-MST (G,k)} }
 \begin{enumerate}
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d8e799d18f07bfb60ebd6445f50d2f96f456b14c
     \item  \textnormal{t $\leftarrow$ 0}
     \item  \textnormal{\textbf{while} t $<$ k}
     \item \textnormal{\blank{1cm}\textbf{do} u $\leftarrow${ESCOGER(G)}}
@@ -121,10 +110,6 @@ Para demostrar que un problema pertenece a la clase NP, se debe crear un algorit
      \item \textnormal{\blank{3cm} t++}\\
 \end{enumerate}
 X será el árbol a construirse,junto con el bucle while y una variable t confirmaremos la adición de  exactamente k vértices, escogeremos algún \textit{u} de \textit{G}, si \textit{u} ya esta dentro de \textit{x} el valor de t no cambie por lo tanto se repite hasta tomar otro vértice.
-<<<<<<< HEAD
-=======
-
->>>>>>> d8e799d18f07bfb60ebd6445f50d2f96f456b14c
 
 \subsection{Transformación NP-completo $\alpha$  k-MST}
 El segundo paso para demostrar que un problema pertenece a los NP-completos, es transformar un problema NP-completo conocido para que pueda ser resuelto por el algoritmo del k-MST. Una transformación sencilla es la que se puede hacer dese el problema de Steiner.
@@ -140,10 +125,7 @@ La principal diferencia con el k-MST es que aquí recibimos un conjunto específ
 
 
 \subsubsection*{\underline{Steiner-tree}}
-<<<<<<< HEAD
 
-=======
->>>>>>> d8e799d18f07bfb60ebd6445f50d2f96f456b14c
 \begin{center}
 \begin{tabular}{ |l| }
 \hline
@@ -229,6 +211,23 @@ Es un \textit{algoritmo greedy}, que dado un grafo \textit{G}  encuentra el MST(
 \subsection{Implementación}
 \lstinputlisting[language=C++]{codes/BruteForce.cpp}
 
+
+\subsection{Resultado}
+\subsubsection{Entrada}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.45]{images/FB-entrada.png}
+    \caption{Entrada del algoritmo de fuerza bruta. Obtención propia.}
+    \label{fig:my_label}
+\end{figure}
+\subsubsection{Salida}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/FB-salida.png}
+    \caption{Salida del algoritmo de fuerza bruta. Obtención propia.}
+    \label{fig:my_label}
+\end{figure}
+\clearpage
 
 
 \section{Algoritmo aproximado}
